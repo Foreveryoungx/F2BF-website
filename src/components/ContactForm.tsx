@@ -28,7 +28,6 @@ import {
 } from 'react-icons/md';
 import { BsInstagram, BsPerson, BsLinkedin } from 'react-icons/bs';
 export default function ContactForm() {
-
         const {
             handleSubmit,
                 register,
@@ -41,7 +40,7 @@ export default function ContactForm() {
          })
          return new Promise<void>((resolve) => {
              setTimeout(() => {
-                 alert('Message sent successful')
+
                      resolve()
                  },
                  3000)
@@ -152,14 +151,14 @@ export default function ContactForm() {
                                                 </InputGroup>
                                             </FormControl>
                                             <FormControl id="message" isInvalid={errors.message}>
-                                                <FormLabel>Message:</FormLabel>
+                                                <FormLabel htmlFor={'message'}>Message:</FormLabel>
                                                 <InputGroup borderColor="#E0E1E7">
                                                 <Textarea id="message"
                                                     borderColor="gray.300"
                                                     _hover={{
                                                         borderRadius: 'gray.300',
                                                     }}
-                                                    placeholder="message"
+                                                    placeholder="message" {...register('message')}
                                                 />
                                                 </InputGroup>
                                             </FormControl>
