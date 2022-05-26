@@ -17,6 +17,12 @@ This project is used by the following companies:
 
 - FORMED 2B FIERCE FITNESS LLC
 
+## Demo
+
+link to demo of Site
+
+https://f2-bf-website.vercel.app/#
+
 
 ## Acknowledgements
 
