@@ -77,7 +77,7 @@ export default function Footer() {
                 <Box boxSize='100px'>
                     <Img src={'https://res.cloudinary.com/dvfdkfitt/image/upload/v1652894584/F2BFF/F2BFF21__ozkpyq.jpg'} alt='Formed 2BE Fierce Fitness Logo' />
                 </Box>
-                <Text>© 2022 Formed 2BE FIERCE FITNESS. All rights reserved</Text>
+                <Text>© 2022 Formed 2B FIERCE FITNESS LLC. All rights reserved</Text>
                 <Stack direction={'row'} spacing={6}>
                     <SocialButton label={'Facebook'} href={'https://www.facebook.com'}>
                         <FaFacebook />
