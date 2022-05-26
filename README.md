@@ -15,7 +15,7 @@ This project is a personal website for a client based around personal training
 
 This project is used by the following companies:
 
-- Formed 2BE FIERCE FITNESS LLC
+- FORMED 2B FIERCE FITNESS LLC
 
 
 ## Acknowledgements
