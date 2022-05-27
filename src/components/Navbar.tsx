@@ -240,7 +240,7 @@ const NAV_ITEMS: Array<NavItem> = [
             {
                 label: '1 on 1',
                 subLabel: 'Personal Trainer',
-                href: 'comingsoon',
+                href: 'prices',
             },
             {
                 label: 'Zumba',
