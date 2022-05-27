@@ -223,11 +223,11 @@ export default function PricingPersonal() {
                 </VStack>
             </PriceWrapper>
             </Stack>
-            <Box w="100%" pt={7}>
-                <Button w="full" colorScheme="green" >
-                    Group Package
-                </Button>
-            </Box>
+            {/*<Box w="100%" pt={7}>*/}
+            {/*    <Button w="full" colorScheme="green" >*/}
+            {/*        Group Package*/}
+            {/*    </Button>*/}
+            {/*</Box>*/}
         </Box>
     );
 }
