@@ -15,7 +15,7 @@ import {
     Input,
     InputGroup,
     InputLeftElement,
-    Textarea,
+    Textarea, toast, useToast,
 } from '@chakra-ui/react';
 import axios from 'axios';
 import {useForm} from 'react-hook-form';
@@ -27,20 +27,45 @@ import {
     MdOutlineEmail,
 } from 'react-icons/md';
 import { BsInstagram, BsPerson, BsLinkedin } from 'react-icons/bs';
+import {useState} from 'react';
+import emailjs from "emailjs-com"
+import {useRouter} from 'next/router';
+
 export default function ContactForm() {
+    const [sent, setSent] = useState(false)
+    const toast = useToast()
+    const router = useRouter()
+     function sendEmail(e)  {
+        e.preventDefault();
+        emailjs.sendForm("service_j4gj3df",'template_sopb80o', e.target, "L9XIW_UKW5uwbq81N" )
+            .then((result) => {
+                console.log(result.text)
+            }, (error) => {
+                console.log(error.text)
+            })
+        e.target.reset()
+    }
         const {
             handleSubmit,
                 register,
                 formState:{ errors, isSubmitting},
         } = useForm()
+     function onSubmit(values, e) {
+         axios.post("https://f2bf-server.herokuapp.com/api/post", values, e).then(async (res) => {
+             sendEmail(e)
+             setSent(true)
 
-     function onSubmit(values) {
-         axios.post("https://f2bf-server.herokuapp.com/api/post", values).then((res) => {
-             console.log(res)
          })
          return new Promise<void>((resolve) => {
              setTimeout(() => {
-
+                 toast({
+                     title: "Email Sent",
+                     description: "We have received your e-mail and will get back with you in the next 24-48 hours thank you.",
+                     status: 'success',
+                     duration: 9000,
+                     isClosable: true
+                 })
+                     router.push("/")
                      resolve()
                  },
                  3000)
@@ -61,7 +86,7 @@ export default function ContactForm() {
                                 <Box>
                                     <Heading>Contact Me</Heading>
                                     <Text mt={{ sm: 3, md: 3, lg: 5 }} color="gray.500">
-                                        Fill out the form below for more info or Inquires
+                                        Fill out the form below to reach me
                                     </Text>
                                     <Box py={{ base: 5, sm: 5, md: 8, lg: 10 }}>
                                         <VStack pl={0} spacing={3} alignItems="flex-start">
@@ -131,7 +156,7 @@ export default function ContactForm() {
                                                         pointerEvents="none"
                                                         children={<BsPerson color="gray.800" />}
                                                     />
-                                                    <Input id="name" placeholder='name' type="text" size="md" {...register('name', {
+                                                    <Input id="name" placeholder='name' type="text" size="md" onChange={(e) => sendEmail(e.target.value)} {...register('name', {
                                                         required: 'This is required',
                                                         minLength: {value: 4, message: 'minimum length is 4'},
                                                     })}/>
@@ -144,7 +169,7 @@ export default function ContactForm() {
                                                         pointerEvents="none"
                                                         children={<MdOutlineEmail color="gray.800" />}
                                                     />
-                                                    <Input id="email" placeholder='e-mail' type="email" size="md" {...register('email', {
+                                                    <Input id="email" placeholder='e-mail' type="email" size="md" onChange={(e) => sendEmail(e.target.value)} {...register('email', {
                                                         required: 'This is required',
                                                         minLength: { value: 4, message: 'should be a e-mail' },
                                                     })}/>
@@ -158,11 +183,11 @@ export default function ContactForm() {
                                                     _hover={{
                                                         borderRadius: 'gray.300',
                                                     }}
-                                                    placeholder="message" {...register('message')}
+                                                    placeholder="message" onChange={(e) => sendEmail(e.target.value)} {...register('message')}
                                                 />
                                                 </InputGroup>
                                             </FormControl>
-                                            <FormControl id="name" float="right">
+                                            <FormControl>
                                                 <Button
                                                     isLoading={isSubmitting}
                                                     variant="solid"
@@ -170,7 +195,7 @@ export default function ContactForm() {
                                                     color="white"
                                                     _hover={{}}
                                                 type='submit'>
-                                                    Send Message
+                                                    Send e-mail
                                                 </Button>
                                             </FormControl>
                                             </form>
