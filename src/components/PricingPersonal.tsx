@@ -81,7 +81,7 @@ export default function PricingPersonal() {
                             </ListItem>
                         </List>
                         <Box w="80%" pt={7}>
-                            <Button w="full" colorScheme="red" variant="outline">
+                            <Button w="full" colorScheme="pink" variant="outline">
                                 Select this package
                             </Button>
                         </Box>
@@ -131,7 +131,7 @@ export default function PricingPersonal() {
                                 </ListItem>
                             </List>
                             <Box w="80%" pt={7}>
-                                <Button w="full" colorScheme="red" variant="outline">
+                                <Button w="full" colorScheme="pink" variant="outline">
                                     Select this package
                                 </Button>
                             </Box>
@@ -174,7 +174,7 @@ export default function PricingPersonal() {
                             </ListItem>
                         </List>
                         <Box w="80%" pt={7}>
-                            <Button w="full" colorScheme="red" variant="outline">
+                            <Button w="full" colorScheme="pink" variant="outline">
                                 Select this package
                             </Button>
                         </Box>
@@ -223,11 +223,6 @@ export default function PricingPersonal() {
                 </VStack>
             </PriceWrapper>
             </Stack>
-            {/*<Box w="100%" pt={7}>*/}
-            {/*    <Button w="full" colorScheme="green" >*/}
-            {/*        Group Package*/}
-            {/*    </Button>*/}
-            {/*</Box>*/}
         </Box>
     );
 }

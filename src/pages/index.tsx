@@ -1,5 +1,5 @@
 import  Hero  from '../components/Hero'
-import PricingPersonal from '../components/Pricing-personal';
+import PricingPersonal from '../components/PricingPersonal';
 
 const Index = () => (
     <>
