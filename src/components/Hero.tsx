@@ -17,7 +17,7 @@ import dynamic from 'next/dynamic';
 const ModalVideo = dynamic(() => import('react-modal-video'), { ssr: false });
 import {useState} from 'react';
 import Link from 'next/link';
-export default function CallToActionWithVideo() {
+export default function Video() {
     const [videoOpen, setVideoOpen] = useState(false)
     const handleClick = (e) => {
         e.preventDefault();

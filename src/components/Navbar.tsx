@@ -251,7 +251,7 @@ const NAV_ITEMS: Array<NavItem> = [
     },
     {
         label: 'Bio',
-        href: 'comingsoon',
+        href: 'bio',
     },
     {
         label: 'Contact',
